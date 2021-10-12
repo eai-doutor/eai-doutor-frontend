@@ -54,7 +54,7 @@ export const PARAMS = {
     line_linked: {
       enable: true,
       distance: 150,
-      color: '#344675',
+      color: '#1ae28a',
       opacity: 0.4,
       width: 1,
     },

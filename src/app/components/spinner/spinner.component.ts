@@ -9,7 +9,6 @@ export class SpinnerComponent {
   private static nextId = 0;
 
   @Input() size = 3.2;
-  @Input() label!: string;
 
   public id = `spinner_${++SpinnerComponent.nextId}`;
 

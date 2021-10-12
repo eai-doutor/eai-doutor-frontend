@@ -31,6 +31,7 @@ import { InputComponent } from './components/input/input.component';
 import { ItemComponent } from './components/item/item.component';
 import { CardComponent } from './components/card/card.component';
 import { ResizeDirective } from './directives/resize.directive';
+import { LoginComponent } from './pages/login/login.component';
 import { CepComponent } from './components/cep/cep.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppComponent } from './app.component';
@@ -85,7 +86,8 @@ const DECLARATIONS = [
   ItemComponent,
   SpinnerComponent,
   SnackbarComponent,
-  SidebarComponent
+  SidebarComponent,
+  LoginComponent,
 ];
 
 const EXTERNAL_MODULES = [
@@ -117,9 +119,7 @@ const MATERIAL_MODULES = [
 ];
 
 @NgModule({
-  declarations: [	...DECLARATIONS,
-      SidebarComponent
-   ],
+  declarations: [	...DECLARATIONS],
   imports: [...ANGULAR_MODULES, ...MATERIAL_MODULES, ...EXTERNAL_MODULES],
   providers: [...PROVIDERS],
   bootstrap: [AppComponent],
