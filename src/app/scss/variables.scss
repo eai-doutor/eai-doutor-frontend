@@ -1,0 +1,37 @@
+// Breakpoints
+$breakpoint-xsmall: 0;
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-wide: 1025px;
+$breakpoint-header: 1079px;
+$breakpoint-xlarge: 1200px;
+
+// Colors
+$color-primary: #1ae28a;
+$color-secondary: #209077;
+$color-terciary: #34495E;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-gray: #717171;
+$color-gray-button: #9a9a99;
+$color-light-gray: #cecece;
+$color-gray-bg: #f1f1f1;
+$color-light-pink: #ffb7b7;
+$color-light-yellow: #ffffcc;
+$color-light-black: #1f272e;
+$color-medium-black: #282828;
+$color-green: #6cf571;
+$color-red: #ff0000;
+$color-error: #f44336;
+$color-red-tomato: #ff6347;
+$color-light-red: #ff7573;
+$color-disabled: #cbcbcb;
+$color-background: #fbfbfb;
+
+// Grid
+$grid-columns: 12;
+
+// Fonts
+$font-roboto: Roboto, "Helvetica Neue", sans-serif;
+$font-montserrat: "Montserrat", sans-serif;
