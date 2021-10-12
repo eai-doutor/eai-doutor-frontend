@@ -33,6 +33,7 @@ import { CardComponent } from './components/card/card.component';
 import { ResizeDirective } from './directives/resize.directive';
 import { LoginComponent } from './pages/login/login.component';
 import { CepComponent } from './components/cep/cep.component';
+import { InfoComponent } from './pages/info/info.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppComponent } from './app.component';
 
@@ -88,6 +89,7 @@ const DECLARATIONS = [
   SnackbarComponent,
   SidebarComponent,
   LoginComponent,
+  InfoComponent
 ];
 
 const EXTERNAL_MODULES = [
