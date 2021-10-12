@@ -1,62 +1,19 @@
 @import "../../scss/includes.scss";
 
-* {
-  color: $color-white !important;
-  align-items: center;
-  line-height: 1.6;
-}
+.root {
+  @include grid(32);
 
-.footer-image {
-  margin: 2rem 0;
-  max-width: 50%;
+  .container {
+    @include grid-column-span(32);
+    margin-bottom: 32px;
+    margin-top: 32px;
 
-  @include large-and-up {
-    margin: 0;
-    max-width: 55%;
-  }
-}
+    .content {
+      @include center();
 
-.footer-label {
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  margin-top: 3rem;
-
-  @include large-and-up {
-    margin-top: 0;
-    font-size: 1.1rem;
-    text-align: left !important;
-  }
-}
-
-.footer-bottom {
-  text-align: center;
-  padding: 6rem 0 2rem;
-  font-size: 0.8rem;
-}
-
-.footer-link {
-  color: $color-white;
-  text-decoration: none;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.footer-iconlink {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  margin-right: 4px;
-  transition: transform 0.2s;
-  transform: scale(1);
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &:active {
-    transform: scale(1.2);
+      span {
+        margin: 0 4px 0 4px;
+      }
+    }
   }
 }

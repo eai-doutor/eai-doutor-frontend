@@ -23,6 +23,7 @@ import { CEPService } from './services/cep.service';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SidebarComponent } from './fragments/sidebar/sidebar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './fragments/header/header.component';
 import { FooterComponent } from './fragments/footer/footer.component';
@@ -83,7 +84,8 @@ const DECLARATIONS = [
   InputComponent,
   ItemComponent,
   SpinnerComponent,
-  SnackbarComponent
+  SnackbarComponent,
+  SidebarComponent
 ];
 
 const EXTERNAL_MODULES = [
@@ -115,7 +117,9 @@ const MATERIAL_MODULES = [
 ];
 
 @NgModule({
-  declarations: [...DECLARATIONS],
+  declarations: [	...DECLARATIONS,
+      SidebarComponent
+   ],
   imports: [...ANGULAR_MODULES, ...MATERIAL_MODULES, ...EXTERNAL_MODULES],
   providers: [...PROVIDERS],
   bootstrap: [AppComponent],

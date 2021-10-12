@@ -2,21 +2,10 @@
 
 .nav {
   @include z-index("space");
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2) !important;
-  background-color: rgba(255, 255, 255, 0.2);
-  position: fixed;
+  background: linear-gradient(-45deg, #209077 0%, #1ae28a 100%);
+  position: relative;
   height: 50px;
   width: 100%;
-
-  @media (min-width: 1080px) {
-    height: 80px;
-  }
-}
-
-.logo {
-  margin-right: 1rem;
-  margin-left: 1rem;
-  width: 5rem;
 }
 
 .nav > .nav-header {
@@ -29,6 +18,7 @@
 
 .nav > .nav-links {
   @include z-index("sky");
+  text-align: left !important;
   font-size: 1rem;
   display: inline;
   float: right;
@@ -39,18 +29,14 @@
 }
 
 .nav > .nav-links > a {
-  color: $color-primary !important;
-  font-weight: normal !important;
-  padding: 13px 16px 13px 16px;
   display: inline-block;
+  padding: 13px 16px 13px 52px;
+  text-decoration: none;
+  color: $color-white;
   cursor: pointer;
 
   transition: transform 0.2s;
   transform: scale(1);
-
-  &:hover {
-    font-weight: bold !important;
-  }
 }
 
 .nav > .nav-links > a:hover {
@@ -83,21 +69,21 @@
   }
 
   .nav > .nav-btn > label > span {
-    border-top: 2px solid $color-primary;
     display: block;
-    height: 10px;
     width: 25px;
+    height: 10px;
+    border-top: 2px solid $color-terciary;
   }
 
   .nav > .nav-links {
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease-in;
-    text-align: center;
-    overflow-y: hidden;
+    background: linear-gradient(-45deg, #209077 0%, #1ae28a 100%);
     position: absolute;
     display: block;
     width: 100%;
+    text-align: center;
     height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
     top: 50px;
     left: 0px;
   }
