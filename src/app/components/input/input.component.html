@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+  <p *ngIf="type !== 'currency'">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ label }}</mat-label>
+      <input
+        [formControlName]="control"
+        type="text"
+        [mask]="mask"
+        [required]="required"
+        [placeholder]="placeholder"
+        matInput
+      />
+    </mat-form-field>
+  </p>
+
+  <p *ngIf="type === 'currency'">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ label }}</mat-label>
+      <input
+        currencyMask
+        [formControlName]="control"
+        type="text"
+        [required]="required"
+        [placeholder]="placeholder"
+        matInput
+      />
+    </mat-form-field>
+  </p>
+</form>
+
+<p *ngIf="hasError" class="error mt-2">
+  <span *ngIf="isRequiredError" class="error">
+    {{ label }} é obrigatório.
+  </span>
+</p>

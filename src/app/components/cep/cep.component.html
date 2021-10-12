@@ -1,0 +1,13 @@
+<app-input
+  [form]="form"
+  label="CEP"
+  placeholder="Digite seu CEP"
+  control="cep"
+  type="cep"
+  [required]="true"
+  (input)="findAddressByCEP($event, 'template')">
+</app-input>
+
+<p *ngIf="isLoading">
+  <app-spinner label="Carregando endereço..." [size]="2"> </app-spinner>
+</p>
