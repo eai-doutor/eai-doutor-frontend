@@ -2,14 +2,18 @@
 
 .root {
   @include grid(32);
-  padding: 15rem 0 15rem 0;
+  padding: 5rem 0 5rem 0;
+
+  @include large-and-up {
+    padding: 15rem 0 15rem 0;
+  }
 
   .container-root {
     @include grid-column-span(32);
 
     .title {
+      color: $color-primary !important;
       text-transform: uppercase;
-      color: $color-secondary;
       padding-bottom: 1rem;
       text-align: center;
       font-weight: 400;

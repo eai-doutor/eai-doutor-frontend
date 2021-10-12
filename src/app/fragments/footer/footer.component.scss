@@ -10,6 +10,11 @@
 
     .content {
       @include center();
+      font-size: 12px;
+
+      @include large-and-up {
+        font-size: 16px;
+      }
 
       span {
         margin: 0 4px 0 4px;
