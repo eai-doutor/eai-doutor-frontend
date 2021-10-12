@@ -1,7 +1,7 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 
-<div class="root" [@appeard]="state">
+<div class="root">
   <div class="container">
     <ng-container>
       <div class="row">
@@ -9,11 +9,18 @@
           <app-card
             [title]="item.title"
             [subtitle]="item.subtitle"
+            (click)="setCardContent(item.target)"
             [img]="item.img"
             [icon]="item.icon">
           </app-card>
         </div>
       </div>
     </ng-container>
+  </div>
+
+  <div class="container">
+    <div class="text-center mt-3">
+      <app-button *ngIf="!isFirstTime" (click)="repeat()" label="Começar novamente" icon="fa fa-repeat mr-2"></app-button>
+    </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
 
 .nav {
   @include z-index("space");
-  background: linear-gradient(-45deg, #209077 0%, #1ae28a 100%);
+  background: linear-gradient(-45deg, $color-secondary 0%, $color-primary 100%);
   position: relative;
   height: 50px;
   width: 100%;
@@ -72,7 +72,7 @@
   }
 
   .nav > .nav-links {
-    background: linear-gradient(-45deg, #209077 0%, #1ae28a 100%);
+    background: linear-gradient(-45deg, $color-secondary 0%, $color-primary 100%);
     position: absolute;
     display: block;
     width: 100%;

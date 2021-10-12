@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() theme: string = 'primary';
+  @Input() icon?: string;
   @Input() label!: string;
   @Input() disabled!: boolean;
 
