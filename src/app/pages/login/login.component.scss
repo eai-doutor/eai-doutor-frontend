@@ -1,5 +1,14 @@
 @import "../../scss/includes.scss";
 
+.wave {
+  width: 48rem;
+  position: absolute;
+
+  @media (max-width: 1160px) {
+    display: none;
+  }
+}
+
 .root {
   @include grid(32);
 
@@ -20,22 +29,30 @@
       color: $color-white;
       opacity: 1 !important;
       padding: 1rem 2rem 2rem;
-      background: linear-gradient(-45deg, $color-secondary 0%, $color-primary 100%);
+      background: linear-gradient(
+        -45deg,
+        $color-secondary 0%,
+        $color-primary 100%
+      );
 
-      &.login {
-        margin-top: 4rem;
+      .avatar {
+        width: 15%;
+        transform: scale(1);
+        transition: transform 0.2s;
 
-        @include large-and-up {
-          margin-top: 12rem;
+        @include large-and-up() {
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
 
-      &.register {
-        margin-top: 3rem;
+      &.login {
+        margin-top: 18vh;
+      }
 
-        @include large-and-up {
-          margin-top: 8rem;
-        }
+      &.register {
+        margin-top: 10vh;
       }
     }
 

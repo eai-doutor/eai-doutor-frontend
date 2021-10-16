@@ -1,12 +1,19 @@
+<div class="wave">
+  <img [@appeard]="state" src="../../../assets/wave.png">
+</div>
+
 <div class="root">
   <div class="container-root">
     <div class="container">
       <form
         class="form login mb-4"
-        *ngIf="isLogin"
         [formGroup]="loginForm"
-        [@appeard]="state">
-        <div class="text-center"><i class="fa fa-gavel gavel"></i></div>
+        [@appeard]="state"
+        *ngIf="isLogin">
+        
+        <div class="text-center">
+          <img [@appeard]="state" src="../../../assets/avatar.svg" class="avatar">
+        </div>
 
         <div class="row">
           <div class="col-12">
@@ -63,9 +70,12 @@
       <form
         [formGroup]="registerForm"
         class="form register mb-4"
-        *ngIf="!isLogin"
-        [@appeard]="state">
-        <h1 class="text-center">Cadastro de Usuários</h1>
+        [@appeard]="state"
+        *ngIf="!isLogin">
+
+        <div class="text-center">
+          <img [@appeard]="state" src="../../../assets/avatar.svg" class="avatar">
+        </div>
 
         <div class="row">
           <div class="col-12">
@@ -73,39 +83,46 @@
               <i class="fa fa-user mr-2"></i>
               Usuário
             </label>
+
             <input
               type="text"
               formControlName="name"
               placeholder="Digite um nome de usuário"
               class="form-input" />
           </div>
+
           <div class="col-12">
             <label class="form-label text-left">
               <i class="fa fa-envelope mr-2"></i>
               E-mail
             </label>
+
             <input
               type="email"
               formControlName="email"
               placeholder="Digite seu e-mail"
               class="form-input" />
           </div>
+
           <div class="col-12">
             <label class="form-label text-left">
               <i class="fa fa-key mr-2"></i>
               Senha
             </label>
+
             <input
               type="password"
               formControlName="password"
               placeholder="Digite uma senha"
               class="form-input" />
           </div>
+
           <div class="col-12">
             <label class="form-label text-left">
               <i class="fa fa-key mr-2"></i>
               Confirmação da senha
             </label>
+
             <input
               type="password"
               formControlName="passwordConfirmation"
@@ -123,6 +140,7 @@
             (click)="register()"
             value="Acessar"
             class="form-submit">
+
             <app-spinner
               *ngIf="isLoading"
               class="mr-2"

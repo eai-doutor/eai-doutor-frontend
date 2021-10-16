@@ -4,7 +4,6 @@
   background: $color-card;
   border-radius: 0.8rem;
   cursor: pointer;
-  height: 35rem;
   width: 17rem;
 
   transition: transform 0.2s;
@@ -18,12 +17,21 @@
   }
 
   i {
-    background: linear-gradient(-45deg, $color-secondary 0%, $color-primary 100%);
     margin-bottom: 2rem;
     margin-top: 4rem;
     font-size: 6rem;
     text-align: center;
   }
+
+  .default {
+    background: linear-gradient(-45deg, $color-secondary 0%, $color-primary 100%);
+    
+  }
+
+  .outline {
+    color: $color-primary;
+  }
+    
 }
 
 .card-title {
@@ -42,8 +50,4 @@
   -ms-flex-negative: 0;
   border-top-left-radius: calc(0.8rem - 1px);
   border-top-right-radius: calc(0.8rem - 1px);
-}
-
-.internal-shadow {
-  box-shadow: 2px 4px 8px 0 $color-background !important;
 }

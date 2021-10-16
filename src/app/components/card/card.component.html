@@ -1,6 +1,16 @@
-<div class="card internal-shadow mx-auto" [@appeard]="state">
+<div
+  class="card mx-auto"
+  [style]="{ hegiht: height, width: width }"
+  [@appeard]="state">
   <img *ngIf="img" [src]="img" class="card-img-top" />
-  <i *ngIf="icon" [class]="icon"></i>
+
+  <i
+    *ngIf="icon"
+    [class]="icon"
+    [style]="{ 'font-size': size }"
+    [ngClass]="outline ? 'outline' : 'default'"
+  >
+  </i>
 
   <div class="card-body">
     <h5 class="card-title text-center mb-4">{{ title }}</h5>

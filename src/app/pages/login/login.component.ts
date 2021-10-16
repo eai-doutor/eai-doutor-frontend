@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { APPEARD } from 'src/app/animations/appeard.animation';
 import { NotificationService } from 'src/app/services/notification.service';
 import { IUser, UserService } from 'src/app/services/user.service';
+import { WindowService } from 'src/app/services/window.service';
 import { EMAIL_PATTERN } from 'src/app/utils/patterns';
 import { ALERT_THEME } from 'src/app/utils/theme';
 import Swal from 'sweetalert2';
@@ -23,21 +25,26 @@ export interface ILoginInput {
   animations: [APPEARD],
 })
 export class LoginComponent implements OnInit {
+  public subscribeMobile!: Subscription;
   public alertTheme = ALERT_THEME;
   public isLogin: boolean = true;
   public registerForm!: FormGroup;
   public loginForm!: FormGroup;
   public isLoading!: boolean;
+  public isMobile!: boolean;
   public state = 'ready';
   public user!: IUser;
 
   constructor(
     private router: Router,
     private userService: UserService,
+    private windowService: WindowService,
     private notificationService: NotificationService
-  ) {}
+  ) { this.isMobile = window.innerWidth <= windowService.widthMobile; }
 
   ngOnInit(): void {
+    this.subscribeMobile = this.windowService.hasMobile.subscribe((hasMobile: boolean) => (this.isMobile = hasMobile));
+
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
