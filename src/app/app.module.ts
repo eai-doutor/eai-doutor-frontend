@@ -21,6 +21,7 @@ import { WindowService } from './services/window.service';
 import { CEPService } from './services/cep.service';
 
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SidebarComponent } from './fragments/sidebar/sidebar.component';
@@ -38,6 +39,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AppComponent } from './app.component';
 
 import { registerLocaleData } from '@angular/common';
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxMaskModule } from 'ngx-mask';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -89,12 +91,14 @@ const DECLARATIONS = [
   SnackbarComponent,
   SidebarComponent,
   LoginComponent,
-  InfoComponent
+  InfoComponent,
+  DashboardComponent
 ];
 
 const EXTERNAL_MODULES = [
   NgxMaskModule.forRoot(), 
-  CurrencyMaskModule
+  CurrencyMaskModule,
+  NgApexchartsModule
 ];
 
 const ANGULAR_MODULES = [
