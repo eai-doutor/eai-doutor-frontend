@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { WindowService } from 'src/app/services/window.service';
 import { Subscription } from 'rxjs';
 import { APPEARD } from 'src/app/animations/appeard.animation';
@@ -10,7 +10,16 @@ import { APPEARD } from 'src/app/animations/appeard.animation';
   animations: [APPEARD],
 })
 export class SidebarComponent implements OnInit {
+  @HostListener('window:scroll') onScrollEvent() {
+    this.scrolled = true;
+
+    if ((window.innerHeight + window.scrollY) <= document.body.offsetHeight) {
+      this.scrolled = false;
+    }
+  }
+
   public subscribeMobile!: Subscription;
+  public scrolled: boolean = false;
   public isMobile: boolean;
   public state = 'ready';
 
@@ -19,6 +28,8 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subscribeMobile = this.windowService.hasMobile.subscribe((hasMobile: boolean) => (this.isMobile = hasMobile));
+    this.subscribeMobile = this.windowService.hasMobile.subscribe(
+      (hasMobile: boolean) => (this.isMobile = hasMobile)
+    );
   }
 }

@@ -3,7 +3,7 @@
 .nav {
   @include z-index("space");
   background: linear-gradient(-45deg, $color-secondary 0%, $color-primary 100%);
-  position: relative;
+  position: fixed;
   height: 50px;
   width: 100%;
 }
@@ -22,6 +22,10 @@
   font-size: 1.3rem;
   display: inline;
   float: right;
+
+  @include large-and-up {
+    font-size: 1rem;
+  }
 }
 
 .nav > .nav-links > a {
@@ -33,6 +37,10 @@
 
   transition: transform 0.2s;
   transform: scale(1);
+
+  @include large-and-up {
+    padding: 13px 16px 13px 18px;
+  }
 }
 
 .nav > .nav-links > a:hover {
