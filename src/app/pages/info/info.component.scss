@@ -2,7 +2,13 @@
 
 .root {
   @include grid(32);
-  padding: 5rem 0 5rem 0;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+
+  @include large-and-up {
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+  }
 
   .container-root {
     @include grid-column-span(32);

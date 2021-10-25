@@ -1,9 +1,11 @@
 @import "../../scss/includes.scss";
 
 .root {
-  padding-top: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
 
   @include large-and-up {
-    padding-top: 5rem;
+    margin-top: 7rem;
+    margin-bottom: 3rem;
   }
 }
