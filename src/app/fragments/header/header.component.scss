@@ -41,6 +41,11 @@
   @include large-and-up {
     padding: 13px 16px 13px 18px;
   }
+
+  &.clicked {
+    color: $color-white !important;
+    font-weight: bold !important;
+  }
 }
 
 .nav > .nav-links > a:hover {

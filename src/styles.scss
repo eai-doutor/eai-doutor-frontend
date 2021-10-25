@@ -131,6 +131,18 @@ a {
   }
 }
 
-svg text {
-  fill: $color-white;
+.apexcharts-toolbar {
+  svg {
+    fill: $color-white !important;
+  }
+
+  svg:hover {
+    fill: $color-primary !important;
+  }
+}
+
+.apexcharts-canvas {
+  svg text {
+    fill: $color-white;
+  }
 }
