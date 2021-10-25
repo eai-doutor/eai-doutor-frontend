@@ -9,7 +9,7 @@
     margin-top: 32px;
 
     .content {
-      @include center();
+      @include center;
       font-size: 12px;
 
       @include large-and-up {

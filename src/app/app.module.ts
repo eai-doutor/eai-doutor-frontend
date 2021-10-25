@@ -21,6 +21,7 @@ import { WindowService } from './services/window.service';
 import { CEPService } from './services/cep.service';
 
 import { RegisterFormComponent } from './fragments/register-form/register-form.component';
+import { ProfileFormComponent } from './fragments/profile-form/profile-form.component';
 import { LoginFormComponent } from './fragments/login-form/login-form.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -30,6 +31,7 @@ import { SidebarComponent } from './fragments/sidebar/sidebar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './fragments/header/header.component';
 import { FooterComponent } from './fragments/footer/footer.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { InputComponent } from './components/input/input.component';
 import { ItemComponent } from './components/item/item.component';
 import { CardComponent } from './components/card/card.component';
@@ -100,7 +102,9 @@ const DECLARATIONS = [
   InfoComponent,
   DashboardComponent,
   RegisterFormComponent,
-  LoginFormComponent
+  LoginFormComponent,
+  ProfileFormComponent,
+  ProfileComponent
 ];
 
 const EXTERNAL_MODULES = [

@@ -40,6 +40,10 @@ export class UserService {
     return this.sessionStorageService.get(KeyType.USER) !== null;
   }
 
+  public getUser(): IUser {
+    return this.sessionStorageService.get(KeyType.USER);
+  }
+
   public logout(): void {
     this.sessionStorageService.clear();
   }

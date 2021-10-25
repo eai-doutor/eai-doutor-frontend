@@ -14,7 +14,7 @@
     transform: scale(1);
     transition: transform 0.2s;
 
-    @include large-and-up() {
+    @include large-and-up {
       &:hover {
         transform: scale(1.1);
       }
@@ -83,10 +83,10 @@
 }
 
 .register-buttons {
-  @include between();
+  @include between;
   flex-wrap: wrap;
 
   @media (max-width: 351px) {
-    @include center();
+    @include center;
   }
 }

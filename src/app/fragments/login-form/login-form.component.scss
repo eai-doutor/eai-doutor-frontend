@@ -14,7 +14,7 @@
     transform: scale(1);
     transition: transform 0.2s;
 
-    @include large-and-up() {
+    @include large-and-up {
       &:hover {
         transform: scale(1.1);
       }
@@ -22,7 +22,7 @@
   }
 
   &.login {
-    margin-top: 18vh;
+    margin-top: 13vh;
   }
 }
 
@@ -83,11 +83,11 @@
 }
 
 .buttons {
-  @include between();
+  @include between;
   flex-wrap: wrap;
   margin-bottom: 16px;
 
   @media (max-width: 393px) {
-    @include center();
+    @include center;
   }
 }

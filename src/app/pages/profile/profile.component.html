@@ -1,0 +1,10 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<app-profile-form
+  [profileForm]="profileForm"
+  [isLoading]="isLoading"
+  [profile]="profile"
+  (edit)="editProfile()"
+  (exit)="exitProfile()">
+</app-profile-form>
