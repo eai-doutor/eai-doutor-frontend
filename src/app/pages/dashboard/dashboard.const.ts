@@ -1,3 +1,10 @@
+export const CARD_CONTENT = [
+  { title: 'Clicks' },
+  { title: 'Clicks' },
+  { title: 'Clicks' },
+  { title: 'Clicks' },
+];
+
 export const CHART_OPTIONS = {
   series: [
     {

@@ -5,54 +5,16 @@
   <div class="container-root">
     <div class="container">
       <div class="row mb-5">
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
+        <div *ngFor="let item of content; let i = index;" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
           <app-card
             title="Clicks"
-            [subtitle]="clicks"
+            [subtitle]="clicks[i]"
             [outline]="true"
             size="4rem"
             height="22rem"
             width="16rem"
-            (click)="clickCount()"
-            icon="fa fa-hand-o-up">
-          </app-card>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <app-card
-            title="Clicks"
-            [subtitle]="clicks"
-            [outline]="true"
-            size="4rem"
-            height="22rem"
-            width="16rem"
-            (click)="clickCount()"
-            icon="fa fa-hand-o-up">
-          </app-card>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <app-card
-            title="Clicks"
-            [subtitle]="clicks"
-            [outline]="true"
-            size="4rem"
-            height="22rem"
-            width="16rem"
-            (click)="clickCount()"
-            icon="fa fa-hand-o-up">
-          </app-card>
-        </div>
-        
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <app-card
-            title="Clicks"
-            [subtitle]="clicks"
-            [outline]="true"
-            size="4rem"
-            height="22rem"
-            width="16rem"
-            (click)="clickCount()"
+            (click)="clickCount(i)"
+            [img]="item.img"
             icon="fa fa-hand-o-up">
           </app-card>
         </div>

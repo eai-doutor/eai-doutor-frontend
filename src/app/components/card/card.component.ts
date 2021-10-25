@@ -13,11 +13,11 @@ export class CardComponent implements OnInit {
   @Input() img?: string;
   @Input() icon?: string;
   @Input() title!: string;
-  @Input() subtitle!: string | number;
   @Input() size: string = '6rem';
   @Input() width: string = '17rem';
   @Input() height: string = '35rem';
   @Input() outline?: boolean = false;
+  @Input() subtitle?: string | number;
 
   constructor() {}
 

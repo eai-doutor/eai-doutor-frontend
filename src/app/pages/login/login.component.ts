@@ -3,26 +3,20 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { APPEARD } from 'src/app/animations/appeard.animation';
+import { FLIP } from 'src/app/animations/flip.animation';
 import { NotificationService } from 'src/app/services/notification.service';
 import { IUser, UserService } from 'src/app/services/user.service';
 import { WindowService } from 'src/app/services/window.service';
 import { EMAIL_PATTERN } from 'src/app/utils/patterns';
 import { ALERT_THEME } from 'src/app/utils/theme';
+import { catchError } from 'rxjs/operators';
 import Swal from 'sweetalert2';
-
-export interface ILoginInput {
-  label: string;
-  control: string;
-  type: string;
-  required: boolean;
-  placeholder: string;
-}
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [APPEARD],
+  animations: [APPEARD, FLIP],
 })
 export class LoginComponent implements OnInit {
   public subscribeMobile!: Subscription;
@@ -46,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.subscribeMobile = this.windowService.hasMobile.subscribe((hasMobile: boolean) => (this.isMobile = hasMobile));
 
     this.loginForm = new FormGroup({
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.pattern(EMAIL_PATTERN)]),
       password: new FormControl('', Validators.required),
     });
 
@@ -75,9 +69,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public showSuccess(user: IUser): void {
+  public showError(error: any): void {
     Swal.fire({
-      title: `Parabéns, ${user.name}!`,
+      title: `Ops!`,
+      text: error ? error : 'Ocorreu um erro.',
+      icon: 'error',
+      background: this.alertTheme.background,
+      iconColor: this.alertTheme.iconColor,
+      showCancelButton: false,
+      confirmButtonColor: this.alertTheme.confirmButtonColor,
+      confirmButtonText: 'Ok',
+    });
+  }
+
+  public showSuccess(client: IUser): void {
+    Swal.fire({
+      title: `Parabéns, ${client.user.name}!`,
       text: `Você efetuou seu cadastro com sucesso.`,
       icon: 'success',
       background: this.alertTheme.background,
@@ -89,39 +96,26 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    if (this.loginForm.invalid) {
-      return;
-    }
+    if (this.loginForm.invalid) { return;}
 
     const user = this.loginForm.value;
     this.isLoading = true;
 
-    setTimeout(() => {
-      this.userService.login(user.email, user.password);
-      this.notificationService.notify('Bem-vindo, Matheus!');
-      this.router.navigate(['/home']);
-      this.isLoading = false;
-    }, 1000);
+    this.userService.login(user.email, user.password).subscribe(
+      (client) => this.notificationService.notify(`Bem-vindo, ${client.user.name}!`),
+      (response) => {
+        this.isLoading = false;
+        this.showError(response.error.error);
+      },
+      () => {
+        this.isLoading = false;
+        this.router.navigate(['/home']);
+      }
+    );
   }
 
   public goLogin() {
-    Swal.fire({
-      title: `Você tem certeza que deseja voltar pra página de login?`,
-      text: 'Você perderá todos os dados, caso os tenha preenchido.',
-      icon: 'warning',
-      background: this.alertTheme.background,
-      showCancelButton: true,
-      confirmButtonColor: this.alertTheme.confirmButtonColor,
-      iconColor: this.alertTheme.iconColor,
-      cancelButtonColor: this.alertTheme.cancelButtonColor,
-      confirmButtonText: 'Sim',
-      cancelButtonText: 'Não',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.router.navigate(['/login']);
-        this.isLogin = true;
-      }
-    });
+    this.isLogin = true;
   }
 
   public register() {
@@ -137,11 +131,19 @@ export class LoginComponent implements OnInit {
     this.user = this.registerForm.value;
     this.isLoading = true;
 
-    setTimeout(() => {
-      this.userService.create(this.user);
-      this.isLoading = false;
-      this.showSuccess(this.user);
-      this.isLogin = true;
-    }, 1000);
+    this.userService
+      .create(this.user)
+      .pipe(
+        catchError((err) => {
+          this.showError(err.error.error);
+          this.isLoading = false;
+          return err;
+        })
+      )
+      .subscribe((user) => {
+        this.isLoading = false;
+        this.showSuccess(user as IUser);
+        this.goLogin();
+      });
   }
 }

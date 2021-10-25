@@ -9,14 +9,6 @@ export enum Target {
   JUSRISPRUDENCIA = 'Jurisprudência'
 }
 
-export interface IContent {
-  subtitle: string;
-  title: string;
-  icon?: string;
-  img?: string;
-  target?: Target;
-}
-
 export const CARD_CONTENT = [
   {
     title: 'SOU ADVOGADO',

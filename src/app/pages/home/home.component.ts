@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APPEARD } from 'src/app/animations/appeard.animation';
+import { ICard } from 'src/app/components/card/card.interface';
 import {
   CARD_CONTENT,
   CARD_CONTENT_CAMINHO_ADM,
@@ -10,7 +11,6 @@ import {
   CARD_CONTENT_CAMINHO_CONSULTA_PROCESSUAL,
   CARD_CONTENT_CAMINHO_CONTATOS,
   CARD_CONTENT_CAMINHO_JUSRISPRUDENCIA,
-  IContent,
   Target,
 } from './home.interface';
 
@@ -22,7 +22,7 @@ import {
 })
 export class HomeComponent implements OnInit {
   public isFirstTime: boolean = true;
-  public content!: IContent[];
+  public content!: ICard[];
   public state = 'ready';
 
   constructor() {}

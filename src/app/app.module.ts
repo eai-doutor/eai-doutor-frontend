@@ -20,6 +20,8 @@ import { LanguageService } from './services/i18n.service';
 import { WindowService } from './services/window.service';
 import { CEPService } from './services/cep.service';
 
+import { RegisterFormComponent } from './fragments/register-form/register-form.component';
+import { LoginFormComponent } from './fragments/login-form/login-form.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -36,6 +38,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { CepComponent } from './components/cep/cep.component';
 import { InfoComponent } from './pages/info/info.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoggedInGuard } from './guards/loggedin.guard';
+import { LoginGuard } from './guards/login.guard';
 import { AppComponent } from './app.component';
 
 import { registerLocaleData } from '@angular/common';
@@ -71,6 +75,8 @@ const PROVIDERS = [
   LanguageService,
   NotificationService,
   WindowService,
+  LoggedInGuard,
+  LoginGuard,
   { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
   { provide: LOCALE_ID, useValue: 'pt' },
 ];
@@ -92,7 +98,9 @@ const DECLARATIONS = [
   SidebarComponent,
   LoginComponent,
   InfoComponent,
-  DashboardComponent
+  DashboardComponent,
+  RegisterFormComponent,
+  LoginFormComponent
 ];
 
 const EXTERNAL_MODULES = [
