@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { APPEARD } from 'src/app/animations/appeard.animation';
-import { FLIP } from 'src/app/animations/flip.animation';
 import { NotificationService } from 'src/app/services/notification.service';
 import { IUser, UserService } from 'src/app/services/user.service';
 import { WindowService } from 'src/app/services/window.service';
@@ -16,7 +15,7 @@ import Swal from 'sweetalert2';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [APPEARD, FLIP],
+  animations: [APPEARD],
 })
 export class LoginComponent implements OnInit {
   public subscribeMobile!: Subscription;
