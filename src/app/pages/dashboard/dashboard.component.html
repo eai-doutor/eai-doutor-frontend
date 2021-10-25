@@ -22,22 +22,6 @@
         </div>
       </div>
 
-      <div class="row mt-3">
-        <div *ngFor="let item of content; let i = index" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <app-card
-            title="Clicks"
-            [subtitle]="clicks[i]"
-            [outline]="true"
-            size="4rem"
-            height="22rem"
-            width="16rem"
-            (click)="clickCount(i)"
-            [img]="item.img"
-            icon="fa fa-hand-o-up">
-          </app-card>
-        </div>
-      </div>
-
       <div class="card card-bordered bg-dark">
         <div class="card-header">Acessos</div>
         <div class="card-body">
@@ -66,6 +50,22 @@
               [fill]="multipleRadialbarsChartOptions.fill">
             </apx-chart>
           </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div *ngFor="let item of content; let i = index" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
+          <app-card
+            title="Clicks"
+            [subtitle]="clicks[i]"
+            [outline]="true"
+            size="4rem"
+            height="22rem"
+            width="16rem"
+            (click)="clickCount(i)"
+            [img]="item.img"
+            icon="fa fa-hand-o-up">
+          </app-card>
         </div>
       </div>
     </div>

@@ -27,8 +27,12 @@
     }
 
     .flex-charts {
-      @include between;
+      @include center;
       flex-wrap: wrap;
+
+      @include large-and-up {
+        @include between;
+      }
     }
 
     .bg-dark {
