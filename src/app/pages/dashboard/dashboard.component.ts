@@ -19,9 +19,7 @@ import {
 import {
   CARD_CONTENT,
   CHART_OPTIONS,
-  COLUMN_CHART,
   MULTIPLE_RADIALBARS_CHART,
-  RADIALBARS_CHART,
 } from './dashboard.const';
 
 import { ICard } from 'src/app/components/card/card.interface';
@@ -52,8 +50,6 @@ export class DashboardComponent implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
 
   public multipleRadialbarsChartOptions: Partial<ChartOptions> | any;
-  public radialbarsChartOptions: Partial<ChartOptions> | any;
-  public columnChartOptions: Partial<ChartOptions> | any;
   public chartOptions: Partial<ChartOptions> | any;
   public clicks: number[] = [];
   public content!: ICard[];
@@ -61,8 +57,6 @@ export class DashboardComponent implements OnInit {
 
   constructor() {
     this.chartOptions = CHART_OPTIONS;
-    this.columnChartOptions = COLUMN_CHART;
-    this.radialbarsChartOptions = RADIALBARS_CHART;
     this.multipleRadialbarsChartOptions = MULTIPLE_RADIALBARS_CHART;
   }
 

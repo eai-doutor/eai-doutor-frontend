@@ -8,23 +8,38 @@ export const CARD_CONTENT = [
 export const CHART_OPTIONS = {
   series: [
     {
-      name: 'TEAM A',
+      name: 'Advogados',
       type: 'column',
-      data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+      data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 62],
     },
     {
-      name: 'TEAM B',
+      name: 'Clientes',
       type: 'area',
-      data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
+      data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43, 60],
     },
     {
-      name: 'TEAM C',
+      name: 'Administradores',
       type: 'line',
-      data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
+      data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 52],
     },
   ],
   chart: {
-    height: 350,
+    fontFamily: '"Montserrat", sans-serif',
+    toolbar: {
+      show: true,
+      offsetX: 0,
+      offsetY: 0,
+      tools: {
+        download: true,
+        selection: false,
+        zoom: false,
+        zoomin: true,
+        zoomout: true,
+        pan: false,
+        customIcons: [],
+      },
+    },
+    height: 450,
     type: 'line',
     stacked: false,
   },
@@ -50,37 +65,49 @@ export const CHART_OPTIONS = {
     },
   },
   labels: [
-    '01/01/2003',
-    '02/01/2003',
-    '03/01/2003',
-    '04/01/2003',
-    '05/01/2003',
-    '06/01/2003',
-    '07/01/2003',
-    '08/01/2003',
-    '09/01/2003',
-    '10/01/2003',
-    '11/01/2003',
+    '01/01/2021',
+    '02/02/2021',
+    '03/03/2021',
+    '04/04/2021',
+    '05/05/2021',
+    '06/06/2021',
+    '07/07/2021',
+    '08/08/2021',
+    '09/09/2021',
+    '10/10/2021',
+    '11/11/2021',
   ],
   markers: {
     size: 0,
   },
   xaxis: {
-    type: 'datetime',
+    type: 'category',
+    categories: [
+      'Jan/2021',
+      'Fev/2021',
+      'Mar/2021',
+      'Abr/2021',
+      'Maio/2021',
+      'Jun/2021',
+      'Jul/2021',
+      'Ago/2021',
+      'Set/2021',
+      'Out/2021',
+      'Nov/2021',
+      'Dez/2021',
+    ],
   },
   yaxis: {
-    title: {
-      text: 'Points',
-    },
     min: 0,
   },
   tooltip: {
+    theme: 'dark',
     shared: true,
     intersect: false,
     y: {
-      formatter: function (y: any) {
+      formatter: (y: any) => {
         if (typeof y !== 'undefined') {
-          return y.toFixed(0) + ' points';
+          return y.toFixed(0) + ' acessos';
         }
         return y;
       },
@@ -88,47 +115,13 @@ export const CHART_OPTIONS = {
   },
 };
 
-export const RADIALBARS_CHART = {
-  chart: {
-    type: 'radialBar',
-    height: 350,
-    width: 380,
-  },
-  plotOptions: {
-    radialBar: {
-      size: undefined,
-      inverseOrder: true,
-      hollow: {
-        margin: 5,
-        size: '48%',
-        background: 'transparent',
-      },
-      track: {
-        show: false,
-      },
-      startAngle: -180,
-      endAngle: 180,
-    },
-  },
-  stroke: {
-    lineCap: 'round',
-  },
-  series: [71, 63, 77],
-  labels: ['Junho', 'Julho', 'Agosto'],
-  legend: {
-    show: true,
-    floating: true,
-    position: 'right',
-    offsetX: 70,
-    offsetY: 240,
-  },
-};
-
 export const MULTIPLE_RADIALBARS_CHART = {
   series: [44, 55, 67, 83],
   chart: {
     height: 350,
+    width: 300,
     type: 'radialBar',
+    fontFamily: '"Montserrat", sans-serif',
   },
   plotOptions: {
     radialBar: {
@@ -150,59 +143,4 @@ export const MULTIPLE_RADIALBARS_CHART = {
     },
   },
   labels: ['Advogados', 'Clientes', 'Administradores', 'Outros'],
-};
-
-export const COLUMN_CHART = {
-  series: [
-    {
-      name: 'PRODUCT A',
-      data: [44, 55, 41, 67, 22, 43, 21, 49],
-    },
-    {
-      name: 'PRODUCT B',
-      data: [13, 23, 20, 8, 13, 27, 33, 12],
-    },
-    {
-      name: 'PRODUCT C',
-      data: [11, 17, 15, 15, 21, 14, 15, 13],
-    },
-  ],
-  chart: {
-    type: 'bar',
-    height: 350,
-    stacked: true,
-    stackType: '100%',
-  },
-  responsive: [
-    {
-      breakpoint: 480,
-      options: {
-        legend: {
-          position: 'bottom',
-          offsetX: -10,
-          offsetY: 0,
-        },
-      },
-    },
-  ],
-  xaxis: {
-    categories: [
-      '2011 Q1',
-      '2011 Q2',
-      '2011 Q3',
-      '2011 Q4',
-      '2012 Q1',
-      '2012 Q2',
-      '2012 Q3',
-      '2012 Q4',
-    ],
-  },
-  fill: {
-    opacity: 1,
-  },
-  legend: {
-    position: 'right',
-    offsetX: 0,
-    offsetY: 50,
-  },
 };

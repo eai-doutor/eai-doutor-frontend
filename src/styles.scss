@@ -98,11 +98,39 @@ a {
 }
 
 .swal2-html-container {
-  color: $color-medium-black !important; 
+  color: $color-medium-black !important;
 }
 
 .swal2-popup .swal2-styled {
   &:focus {
     box-shadow: none !important;
   }
+}
+
+.apexcharts-toolbar {
+  @include medium-and-up {
+    right: 27px !important;
+  }
+}
+
+.apexcharts-legend-text {
+  color: $color-white !important;
+}
+
+.apexcharts-menu {
+  background-color: $color-card !important;
+  border: 0px !important;
+}
+
+.apexcharts-menu-item {
+  padding: 6px 5px !important;
+
+  &:hover {
+    background: $color-white !important;
+    color: $color-medium-black !important;
+  }
+}
+
+svg text {
+  fill: $color-white;
 }

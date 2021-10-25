@@ -2,7 +2,11 @@
 
 .root {
   @include grid(32);
-  padding: 5rem 0 5rem 0;
+  padding: 6rem 0 5rem 0;
+
+  @include large-and-up {
+    padding: 3rem 0 5rem 0;
+  }
 
   .container-root {
     @include grid-column-span(32);
@@ -24,6 +28,11 @@
 
     .flex-charts {
       @include between;
+      flex-wrap: wrap;
+    }
+
+    .bg-dark {
+      background-color: $color-card !important;
     }
   }
 }

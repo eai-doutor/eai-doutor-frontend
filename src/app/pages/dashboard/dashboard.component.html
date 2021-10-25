@@ -4,8 +4,57 @@
 <div class="root" [@appeard]="state">
   <div class="container-root">
     <div class="container">
-      <div class="row mb-5">
-        <div *ngFor="let item of content; let i = index;" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
+      <div class="card card-bordered bg-dark mb-3">
+        <div class="card-header">Acessos</div>
+        <div class="card-body">
+          <apx-chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [yaxis]="chartOptions.yaxis"
+            [xaxis]="chartOptions.xaxis"
+            [labels]="chartOptions.labels"
+            [stroke]="chartOptions.stroke"
+            [plotOptions]="chartOptions.plotOptions"
+            [markers]="chartOptions.markers"
+            [fill]="chartOptions.fill"
+            [tooltip]="chartOptions.tooltip">
+          </apx-chart>
+        </div>
+      </div>
+
+      <div class="card card-bordered bg-dark">
+        <div class="card-header">Acessos</div>
+        <div class="card-body">
+          <div class="flex-charts">
+            <apx-chart
+              [series]="multipleRadialbarsChartOptions.series"
+              [chart]="multipleRadialbarsChartOptions.chart"
+              [plotOptions]="multipleRadialbarsChartOptions.plotOptions"
+              [labels]="multipleRadialbarsChartOptions.labels"
+              [fill]="multipleRadialbarsChartOptions.fill">
+            </apx-chart>
+
+            <apx-chart
+              [series]="multipleRadialbarsChartOptions.series"
+              [chart]="multipleRadialbarsChartOptions.chart"
+              [plotOptions]="multipleRadialbarsChartOptions.plotOptions"
+              [labels]="multipleRadialbarsChartOptions.labels"
+              [fill]="multipleRadialbarsChartOptions.fill">
+            </apx-chart>
+            
+            <apx-chart
+              [series]="multipleRadialbarsChartOptions.series"
+              [chart]="multipleRadialbarsChartOptions.chart"
+              [plotOptions]="multipleRadialbarsChartOptions.plotOptions"
+              [labels]="multipleRadialbarsChartOptions.labels"
+              [fill]="multipleRadialbarsChartOptions.fill">
+            </apx-chart>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div *ngFor="let item of content; let i = index" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
           <app-card
             title="Clicks"
             [subtitle]="clicks[i]"
@@ -19,82 +68,6 @@
           </app-card>
         </div>
       </div>
-
-      <apx-chart
-        [series]="chartOptions.series"
-        [chart]="chartOptions.chart"
-        [yaxis]="chartOptions.yaxis"
-        [xaxis]="chartOptions.xaxis"
-        [labels]="chartOptions.labels"
-        [stroke]="chartOptions.stroke"
-        [plotOptions]="chartOptions.plotOptions"
-        [markers]="chartOptions.markers"
-        [fill]="chartOptions.fill"
-        [tooltip]="chartOptions.tooltip">
-      </apx-chart>
-
-      <div class="flex-charts">
-        <apx-chart
-          [series]="multipleRadialbarsChartOptions.series"
-          [chart]="multipleRadialbarsChartOptions.chart"
-          [plotOptions]="multipleRadialbarsChartOptions.plotOptions"
-          [labels]="multipleRadialbarsChartOptions.labels"
-          [fill]="multipleRadialbarsChartOptions.fill">
-        </apx-chart>
-
-        <apx-chart
-          [series]="multipleRadialbarsChartOptions.series"
-          [chart]="multipleRadialbarsChartOptions.chart"
-          [plotOptions]="multipleRadialbarsChartOptions.plotOptions"
-          [labels]="multipleRadialbarsChartOptions.labels"
-          [fill]="multipleRadialbarsChartOptions.fill">
-        </apx-chart>
-
-        <apx-chart
-          [series]="multipleRadialbarsChartOptions.series"
-          [chart]="multipleRadialbarsChartOptions.chart"
-          [plotOptions]="multipleRadialbarsChartOptions.plotOptions"
-          [labels]="multipleRadialbarsChartOptions.labels"
-          [fill]="multipleRadialbarsChartOptions.fill">
-        </apx-chart>
-      </div>
-
-      <div class="flex-charts">
-        <apx-chart
-          [series]="radialbarsChartOptions.series"
-          [chart]="radialbarsChartOptions.chart"
-          [plotOptions]="radialbarsChartOptions.plotOptions"
-          [labels]="radialbarsChartOptions.labels"
-          [fill]="radialbarsChartOptions.fill">
-        </apx-chart>
-
-        <apx-chart
-          [series]="radialbarsChartOptions.series"
-          [chart]="radialbarsChartOptions.chart"
-          [plotOptions]="radialbarsChartOptions.plotOptions"
-          [labels]="radialbarsChartOptions.labels"
-          [fill]="radialbarsChartOptions.fill">
-        </apx-chart>
-
-        <apx-chart
-          [series]="radialbarsChartOptions.series"
-          [chart]="radialbarsChartOptions.chart"
-          [plotOptions]="radialbarsChartOptions.plotOptions"
-          [labels]="radialbarsChartOptions.labels"
-          [fill]="radialbarsChartOptions.fill">
-        </apx-chart>
-      </div>
-
-      <apx-chart
-        [series]="columnChartOptions.series"
-        [chart]="columnChartOptions.chart"
-        [dataLabels]="columnChartOptions.dataLabels"
-        [plotOptions]="columnChartOptions.plotOptions"
-        [responsive]="columnChartOptions.responsive"
-        [xaxis]="columnChartOptions.xaxis"
-        [legend]="columnChartOptions.legend"
-        [fill]="columnChartOptions.fill">
-      </apx-chart>
     </div>
   </div>
 </div>
