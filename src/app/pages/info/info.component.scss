@@ -2,7 +2,7 @@
 
 .root {
   @include grid(32);
-  padding-top: 5rem;
+  padding: 5rem 0 0 0;
 
   .container-root {
     @include grid-column-span(32);
