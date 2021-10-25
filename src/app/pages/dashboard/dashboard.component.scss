@@ -2,10 +2,10 @@
 
 .root {
   @include grid(32);
-  padding: 5rem 0 0 0;
 
   .container-root {
     @include grid-column-span(32);
+    padding: 5rem 0 0 0;
 
     .title {
       color: $color-primary !important;

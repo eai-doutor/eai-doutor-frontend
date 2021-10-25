@@ -5,12 +5,7 @@
 
   .container-root {
     @include grid-column-span(32);
-    margin-bottom: 1rem;
-    margin-top: 5rem;
-
-    @include large-and-up {
-      margin-bottom: 3rem;
-    }
+    padding: 5rem 0 0 0;
 
     .card-header {
       @include center;
