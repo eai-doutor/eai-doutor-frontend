@@ -4,17 +4,19 @@
   margin: auto;
   max-width: 500px;
   border-radius: 8px;
-  color: $color-white;
   opacity: 1 !important;
-  padding: 1rem 2rem 2rem;
-  background: linear-gradient(-45deg, $color-secondary 0%, $color-primary 100%);
+  padding: 2rem;
+  background: $color-background;
+  box-shadow: 2px 4px 8px 0 $color-shadow;
 
-  .avatar {
-    width: 15%;
+  .logo {
+    width: 40%;
     transform: scale(1);
     transition: transform 0.2s;
 
     @include large-and-up {
+      width: 30%;
+
       &:hover {
         transform: scale(1.1);
       }
@@ -23,31 +25,6 @@
 
   &.login {
     margin-top: 13vh;
-  }
-}
-
-.form-label {
-  display: block;
-  padding: 0.4rem 0;
-  font-size: 1.2rem;
-  margin-top: 1rem;
-}
-
-.form-input {
-  border: 0;
-  width: 100%;
-  display: block;
-  font-size: 1rem;
-  padding: 0.8rem;
-
-  &:disabled {
-    background-color: $color-disabled;
-  }
-
-  &::placeholder {
-    @include large-and-up {
-      font-size: 1rem;
-    }
   }
 }
 
@@ -63,7 +40,7 @@
   transition: background-color 0.2s, color 0.2s;
 
   &:hover {
-    background-color: lighten($color-primary, 15%);
+    background-color: $color-primary-hover;
     color: $color-white;
   }
 
@@ -85,7 +62,6 @@
 .buttons {
   @include between;
   flex-wrap: wrap;
-  margin-bottom: 16px;
 
   @media (max-width: 393px) {
     @include center;

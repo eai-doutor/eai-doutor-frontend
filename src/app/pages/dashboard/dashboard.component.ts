@@ -16,13 +16,7 @@ import {
   ApexLegend,
 } from 'ng-apexcharts';
 
-import {
-  CARD_CONTENT,
-  CHART_OPTIONS,
-  MULTIPLE_RADIALBARS_CHART,
-} from './dashboard.const';
-
-import { ICard } from 'src/app/components/card/card.interface';
+import { CHART_OPTIONS } from './dashboard.const';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -49,23 +43,14 @@ export type ChartOptions = {
 export class DashboardComponent implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
 
-  public multipleRadialbarsChartOptions: Partial<ChartOptions> | any;
   public chartOptions: Partial<ChartOptions> | any;
-  public clicks: number[] = [];
-  public content!: ICard[];
+  public cardClass: string;
   public state = 'ready';
 
   constructor() {
     this.chartOptions = CHART_OPTIONS;
-    this.multipleRadialbarsChartOptions = MULTIPLE_RADIALBARS_CHART;
+    this.cardClass = 'col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3';
   }
 
-  ngOnInit() {
-    this.content = CARD_CONTENT;
-    this.content.forEach(() => this.clicks.push(0));
-  }
-
-  public clickCount(index: number): void {
-    this.clicks[index]++;
-  }
+  ngOnInit() {}
 }

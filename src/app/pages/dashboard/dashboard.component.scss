@@ -31,8 +31,13 @@
       }
     }
 
-    .bg-dark {
-      background-color: $color-card !important;
+    .bg-light {
+      background-color: $color-background !important;
+      box-shadow: 2px 4px 8px 0 $color-shadow;
+    }
+
+    .card-header {
+      background-color: $color-background !important;
     }
   }
 }

@@ -1,6 +1,6 @@
 <div
   class="card mx-auto"
-  [style]="{ hegiht: height, width: width }"
+  [style]="{ height: height, width: width }"
   [@appeard]="state">
   <img *ngIf="img" [src]="img" class="card-img-top" />
 
@@ -13,7 +13,7 @@
   </i>
 
   <div class="card-body">
-    <h5 class="card-title text-center mb-4">{{ title }}</h5>
+    <h3 class="card-title text-center mb-3">{{ title }}</h3>
 
     <div class="card-text text-center">
       <p>{{ subtitle }}</p>

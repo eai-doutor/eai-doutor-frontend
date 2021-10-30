@@ -23,7 +23,7 @@ export const CARD_CONTENT = [
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-user-circle-o',
+    icon: 'fa fa-user',
     target: Target.CLIENTE,
   },
   {
@@ -31,7 +31,7 @@ export const CARD_CONTENT = [
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-star-o',
+    icon: 'fa fa-star',
     target: Target.ADM,
   },
   {
@@ -39,7 +39,7 @@ export const CARD_CONTENT = [
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-question-circle-o',
+    icon: 'fa fa-question-circle',
     target: Target.AJUDA,
   },
 ];
@@ -85,28 +85,28 @@ export const CARD_CONTENT_CAMINHO_CLIENTE = [
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-user-circle-o',
+    icon: 'fa fa-user',
   },
   {
     title: 'FAMÍLIA',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-user-circle-o',
+    icon: 'fa fa-user',
   },
   {
     title: 'TRABALHISTA',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-user-circle-o',
+    icon: 'fa fa-user',
   },
   {
     title: 'EXTRAJUDICIAL',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-user-circle-o',
+    icon: 'fa fa-user',
   },
 ];
 
@@ -116,28 +116,28 @@ export const CARD_CONTENT_CAMINHO_ADM = [
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-star-o',
+    icon: 'fa fa-star',
   },
   {
     title: 'OPÇÃO 2',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-star-o',
+    icon: 'fa fa-star',
   },
   {
     title: 'OPÇÃO 3',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-star-o',
+    icon: 'fa fa-star',
   },
   {
     title: 'OPÇÃO 4',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-star-o',
+    icon: 'fa fa-star',
   },
 ];
 
@@ -147,28 +147,28 @@ export const CARD_CONTENT_CAMINHO_AJUDA = [
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-question-circle-o',
+    icon: 'fa fa-question-circle',
   },
   {
     title: 'OPÇÃO 2',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-question-circle-o',
+    icon: 'fa fa-question-circle',
   },
   {
     title: 'OPÇÃO 3',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-question-circle-o',
+    icon: 'fa fa-question-circle',
   },
   {
     title: 'OPÇÃO 4',
     subtitle: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
     when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-    icon: 'fa fa-question-circle-o',
+    icon: 'fa fa-question-circle',
   },
 ];
 

@@ -5,11 +5,14 @@
   <div class="container">
     <ng-container>
       <div class="row">
-        <div *ngFor="let item of content" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
+        <div *ngFor="let item of content" [class]="cardClass">
           <app-card
             [title]="item.title"
             [subtitle]="item.subtitle"
+            [outline]="false"
             (click)="setCardContent(item.target)"
+            height="30rem"
+            width="17rem"
             [img]="item.img"
             [icon]="item.icon">
           </app-card>

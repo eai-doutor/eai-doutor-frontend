@@ -1,10 +1,3 @@
-export const CARD_CONTENT = [
-  { title: 'Clicks' },
-  { title: 'Clicks' },
-  { title: 'Clicks' },
-  { title: 'Clicks' },
-];
-
 export const CHART_OPTIONS = {
   series: [
     {
@@ -52,7 +45,6 @@ export const CHART_OPTIONS = {
       columnWidth: '50%',
     },
   },
-
   fill: {
     opacity: [0.85, 0.25, 1],
     gradient: {
@@ -101,7 +93,6 @@ export const CHART_OPTIONS = {
     min: 0,
   },
   tooltip: {
-    theme: 'dark',
     shared: true,
     intersect: false,
     y: {
@@ -113,34 +104,4 @@ export const CHART_OPTIONS = {
       },
     },
   },
-};
-
-export const MULTIPLE_RADIALBARS_CHART = {
-  series: [44, 55, 67, 83],
-  chart: {
-    height: 350,
-    width: 300,
-    type: 'radialBar',
-    fontFamily: '"Montserrat", sans-serif',
-  },
-  plotOptions: {
-    radialBar: {
-      dataLabels: {
-        name: {
-          fontSize: '22px',
-        },
-        value: {
-          fontSize: '16px',
-        },
-        total: {
-          show: true,
-          label: 'Total',
-          formatter: function (w: any) {
-            return '249';
-          },
-        },
-      },
-    },
-  },
-  labels: ['Advogados', 'Clientes', 'Administradores', 'Outros'],
 };

@@ -22,10 +22,11 @@ import {
 })
 export class HomeComponent implements OnInit {
   public isFirstTime: boolean = true;
+  public cardClass: string;
   public content!: ICard[];
   public state = 'ready';
 
-  constructor() {}
+  constructor() { this.cardClass = 'col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3'; }
 
   ngOnInit() {
     this.content = CARD_CONTENT;

@@ -15,6 +15,7 @@ import { FormatterLib } from 'src/app/lib/formatter.lib';
 })
 export class InputComponent implements OnInit, AfterViewInit {
   public isRequiredError: boolean;
+  public isEmailError: boolean;
   public hasError: boolean;
 
   @Input() form!: FormGroup;
@@ -26,6 +27,7 @@ export class InputComponent implements OnInit, AfterViewInit {
 
   constructor(private cdr: ChangeDetectorRef, private formatter: FormatterLib) {
     this.isRequiredError = false;
+    this.isEmailError = false;
     this.hasError = false;
     this.required = false;
   }
@@ -63,14 +65,9 @@ export class InputComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.form.valueChanges.subscribe(() => {
-      this.hasError =
-        this.form.get(this.control)?.errors &&
-        (this.form.get(this.control)?.dirty ||
-          this.form.get(this.control)?.touched)
-          ? true
-          : false;
-
+      this.hasError = this.form.get(this.control)?.errors && (this.form.get(this.control)?.dirty || this.form.get(this.control)?.touched) ? true : false;
       this.isRequiredError = this.form.get(this.control)?.errors?.required;
+      this.isEmailError = this.form.get(this.control)?.errors?.pattern;
       this.cdr.detectChanges();
     });
   }

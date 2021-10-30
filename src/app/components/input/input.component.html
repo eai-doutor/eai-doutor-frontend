@@ -1,10 +1,10 @@
 <form [formGroup]="form">
   <p *ngIf="type !== 'currency'">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" [class.error]="hasError">
       <mat-label>{{ label }}</mat-label>
       <input
         [formControlName]="control"
-        type="text"
+        [type]="type"
         [mask]="mask"
         [required]="required"
         [placeholder]="placeholder"
@@ -14,7 +14,7 @@
   </p>
 
   <p *ngIf="type === 'currency'">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" [class.error]="hasError">
       <mat-label>{{ label }}</mat-label>
       <input
         currencyMask
@@ -28,8 +28,12 @@
   </p>
 </form>
 
-<p *ngIf="hasError" class="error mt-2">
+<p *ngIf="hasError">
   <span *ngIf="isRequiredError" class="error">
     {{ label }} é obrigatório.
+  </span>
+  
+  <span *ngIf="!isRequiredError && isEmailError" class="error">
+    Preencha com um e-mail válido.
   </span>
 </p>

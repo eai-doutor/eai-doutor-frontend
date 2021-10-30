@@ -3,44 +3,50 @@
     <div class="container" [@appeard]="state">
       <div class="card card-primary">
         <div class="card-header">
-          <img [@appeard]="state" src="../../../assets/avatar.svg" class="avatar">
-          <h5>Aqui você edita seus dados pessoais, {{ profile.user.name }}.</h5>
+          <i [@appeard]="state" class="fa fa-user-circle profile"></i>
+          <span>Aqui você edita seus dados pessoais, {{ profile.user.name }}.</span>
         </div>
 
         <div class="card-body">
           <form [formGroup]="profileForm">
             <div class="form-row">
               <div class="form-group col-12">
-                <label class="font-weight-bold">Nome</label>
-                <input
-                  formControlName="name"
-                  type="text"
+                <app-input
+                  [form]="profileForm"
+                  label="Nome"
                   placeholder="Digite o seu nome"
-                  class="form-control"/>
+                  [required]="true"
+                  control="name"
+                  type="text">
+                </app-input>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group col-12 col-md-6">
-                <label class="font-weight-bold">Email</label>
-                <input
-                  formControlName="email"
-                  type="text"
+                <app-input
+                  [form]="profileForm"
+                  label="E-mail"
                   placeholder="Digite o seu email"
-                  class="form-control"/>
+                  [required]="true"
+                  control="email"
+                  type="text">
+                </app-input>
               </div>
               
               <div class="form-group col-12 col-md-6">
-                <label class="font-weight-bold">Senha</label>
-                <input
-                  formControlName="password"
-                  type="password"
-                  class="form-control"
-                  placeholder="Digite sua senha"/>
+                <app-input
+                  [form]="profileForm"
+                  label="Senha"
+                  placeholder="Digite sua senha"
+                  [required]="true"
+                  control="password"
+                  type="password">
+                </app-input>
               </div>
             </div>
 
-            <div class="buttons mt-3">
+            <div class="buttons">
               <button
                 [disabled]="profileForm.invalid || isLoading"
                 (click)="editProfile()"

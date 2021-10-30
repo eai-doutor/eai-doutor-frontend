@@ -4,38 +4,34 @@
   [@appeard]="state">
   
   <div class="text-center">
-    <img [@appeard]="state" src="../../../assets/avatar.svg" class="avatar">
+    <img [@appeard]="state" src="assets/logo_01.png" class="logo mb-4">
   </div>
 
   <div class="row">
     <div class="col-12">
-      <label class="form-label text-left">
-        <i class="fa fa-envelope mr-2"></i>
-        E-mail
-      </label>
-
-      <input
-        type="text"
+      <app-input
+        [form]="loginForm"
+        label="E-mail"
         placeholder="Digite seu e-mail"
-        formControlName="email"
-        class="form-input" />
+        [required]="true"
+        control="email"
+        type="text">
+      </app-input>
     </div>
 
     <div class="col-12">
-      <label class="form-label text-left">
-        <i class="fa fa-key mr-2"></i>
-        Senha
-      </label>
-
-      <input
-        type="password"
+      <app-input
+        [form]="loginForm"
+        label="Senha"
         placeholder="Digite sua senha"
-        formControlName="password"
-        class="form-input" />
+        [required]="true"
+        control="password"
+        type="password">
+      </app-input>
     </div>
   </div>
 
-  <div class="buttons mt-4">
+  <div class="buttons mt-3">
     <a class="signin" (click)="goRegister()">
       <i class="fa fa-user-plus mr-2"></i>
       Cadastre-se

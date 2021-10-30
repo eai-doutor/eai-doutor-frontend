@@ -1,10 +1,10 @@
 @import "../../scss/includes.scss";
 
 .card {
-  background: $color-card;
-  border-radius: 0.8rem;
   cursor: pointer;
-  width: 17rem;
+  border-radius: 0.8rem;
+  background: $color-background;
+  box-shadow: 2px 4px 8px 0 $color-shadow;
 
   transition: transform 0.2s;
   transform: scale(1);
@@ -17,26 +17,26 @@
   }
 
   i {
-    margin-bottom: 2rem;
-    margin-top: 4rem;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
     font-size: 6rem;
     text-align: center;
   }
 
   .default {
-    background: linear-gradient(-45deg, $color-secondary 0%, $color-primary 100%);
-    
+    color: $color-primary;
   }
 
   .outline {
-    color: $color-primary;
+    color: $color-secondary;
   }
     
 }
 
 .card-title {
   text-transform: uppercase;
-  color: $color-primary !important;
+  font-weight: bold;
+  color: $color-secondary !important;
 }
 
 .card-text {

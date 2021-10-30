@@ -10,29 +10,37 @@
     .card-header {
       @include center;
       flex-wrap: wrap;
+      background-color: $color-background !important;
 
-      h5 {
+      @include large-and-up {
+        padding: 1.5rem 1rem 1.5rem 1rem;
+      }
+
+      span {
+        font-size: 1rem;
+
         @include large-and-down {
           text-align: center;
         }
       }
 
       @include large-and-up {
-        @include between;
+        @include start;
       }
     }
 
-    .avatar {
-      width: 20%;
+    .profile {
+      font-size: 2rem;
       transform: scale(1);
       transition: transform 0.2s;
 
       @include large-and-down {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
 
       @include large-and-up {
-        width: 5%;
+        font-size: 2rem;
+        margin-right: 1rem;
 
         &:hover {
           transform: scale(1.1);
@@ -45,7 +53,8 @@
     }
 
     .card-primary {
-      background-color: $color-card !important;
+      background: $color-background;
+      box-shadow: 2px 4px 8px 0 $color-shadow;
     }
 
     .buttons {
@@ -72,7 +81,7 @@
         transition: background-color 0.2s, color 0.2s;
 
         &.cancel {
-          background-color: $color-light-black;
+          background-color: $color-danger;
 
           @media (max-width: 377px) {
             margin-top: 0.5rem;
@@ -83,13 +92,13 @@
           }
 
           &:hover {
-            background-color: lighten($color-light-black, 5%);
+            background-color: $color-danger-hover;
             color: $color-white;
           }
         }
 
         &:hover {
-          background-color: lighten($color-primary, 5%);
+          background-color: $color-primary-hover;
           color: $color-white;
         }
 

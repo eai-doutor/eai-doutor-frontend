@@ -4,64 +4,56 @@
   [@appeard]="state">
 
   <div class="text-center">
-    <img [@appeard]="state" src="../../../assets/avatar.svg" class="avatar">
+    <img [@appeard]="state" src="assets/logo_03.png" class="logo mb-4">
   </div>
 
   <div class="row">
     <div class="col-12">
-      <label class="form-label text-left">
-        <i class="fa fa-user mr-2"></i>
-        Usuário
-      </label>
-
-      <input
-        type="text"
-        formControlName="name"
-        placeholder="Digite um nome de usuário"
-        class="form-input" />
+      <app-input
+        [form]="registerForm"
+        label="Usuário"
+        placeholder="Digite seu nome"
+        [required]="true"
+        control="name"
+        type="text">
+      </app-input>
     </div>
 
     <div class="col-12">
-      <label class="form-label text-left">
-        <i class="fa fa-envelope mr-2"></i>
-        E-mail
-      </label>
-
-      <input
-        type="email"
-        formControlName="email"
+      <app-input
+        [form]="registerForm"
+        label="E-mail"
         placeholder="Digite seu e-mail"
-        class="form-input" />
+        [required]="true"
+        control="email"
+        type="email">
+      </app-input>
     </div>
 
     <div class="col-12">
-      <label class="form-label text-left">
-        <i class="fa fa-key mr-2"></i>
-        Senha
-      </label>
-
-      <input
-        type="password"
-        formControlName="password"
-        placeholder="Digite uma senha"
-        class="form-input" />
+      <app-input
+        [form]="registerForm"
+        label="Senha"
+        placeholder="Digite sua senha"
+        [required]="true"
+        control="password"
+        type="password">
+      </app-input>
     </div>
 
     <div class="col-12">
-      <label class="form-label text-left">
-        <i class="fa fa-key mr-2"></i>
-        Confirmação da senha
-      </label>
-
-      <input
-        type="password"
-        formControlName="passwordConfirmation"
+      <app-input
+        [form]="registerForm"
+        label="Confirmação da senha"
         placeholder="Repita sua senha"
-        class="form-input" />
+        [required]="true"
+        control="passwordConfirmation"
+        type="password">
+      </app-input>
     </div>
   </div>
 
-  <div class="register-buttons mt-4">
+  <div class="register-buttons mt-3">
     <a class="login" (click)="goLogin()">
       <i class="fa fa-sign-in mr-2"></i>Login</a>
 

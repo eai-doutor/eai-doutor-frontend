@@ -9,6 +9,11 @@ button {
 
   &:disabled {
     cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  span {
+    font-family: $font-montserrat !important;
   }
 }
 
@@ -18,10 +23,6 @@ button {
 
 .secondary {
   background: $color-secondary;
-}
-
-.terciary {
-  background: $color-terciary;
 }
 
 .cancel {
