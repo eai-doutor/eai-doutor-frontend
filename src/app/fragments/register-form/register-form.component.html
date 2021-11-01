@@ -1,10 +1,12 @@
 <form
-  [formGroup]="registerForm"
   class="form register mb-4"
+  (keydown.enter)="doRegister()"
+  [formGroup]="registerForm"
+  (submit)="doRegister()"
   [@appeard]="state">
 
   <div class="text-center">
-    <img [@appeard]="state" src="assets/logo_03.png" class="logo mb-4">
+    <img [@appeard]="state" src="assets/logo_01.png" class="logo mb-4">
   </div>
 
   <div class="row">
@@ -55,13 +57,15 @@
 
   <div class="register-buttons mt-3">
     <a class="login" (click)="goLogin()">
-      <i class="fa fa-sign-in mr-2"></i>Login</a>
+      <i class="fa fa-sign-in mr-2"></i>
+      Login
+    </a>
 
     <button
-      [disabled]="registerForm.invalid || isLoading"
-      (click)="doRegister()"
+      type="submit"
       value="Acessar"
-      class="form-submit">
+      class="form-submit"
+      [disabled]="registerForm.invalid || isLoading">
 
       <app-spinner
         *ngIf="isLoading"

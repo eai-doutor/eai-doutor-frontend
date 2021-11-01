@@ -3,6 +3,7 @@
 .card {
   cursor: pointer;
   border-radius: 0.8rem;
+  border: 0px !important;
   background: $color-background;
   box-shadow: 2px 4px 8px 0 $color-shadow;
 
@@ -30,12 +31,11 @@
   .outline {
     color: $color-secondary;
   }
-    
 }
 
 .card-title {
-  text-transform: uppercase;
   font-weight: bold;
+  text-transform: uppercase;
   color: $color-secondary !important;
 }
 

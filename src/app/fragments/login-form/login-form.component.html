@@ -1,6 +1,8 @@
 <form
   class="form login mb-4"
+  (keydown.enter)="doLogin()"
   [formGroup]="loginForm"
+  (submit)="doLogin()"
   [@appeard]="state">
   
   <div class="text-center">
@@ -38,9 +40,9 @@
     </a>
 
     <button 
+      type="submit"
       value="Acessar" 
-      class="form-submit" 
-      (click)="doLogin()"
+      class="form-submit"
       [disabled]="loginForm.invalid || isLoading">
 
       <app-spinner
