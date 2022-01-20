@@ -7,3 +7,11 @@ mat-form-field {
 .error {
   color: $color-error !important;
 }
+
+.disabled {
+  color: $color-disabled !important;
+
+  &:hover {
+    cursor: no-drop !important;
+  }
+}

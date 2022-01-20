@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit {
 
   public showSuccess(client: IUser): void {
     Swal.fire({
-      title: `Parabéns, ${client.user.name}!`,
+      title: `Parabéns, ${client.name}!`,
       text: `Você efetuou seu cadastro com sucesso.`,
       icon: 'success',
       background: this.alertTheme.background,
@@ -101,7 +101,7 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     this.userService.login(user.email, user.password).subscribe(
-      (client) => this.notificationService.notify(`Bem-vindo, ${client.user.name}!`),
+      (client) => this.notificationService.notify(`Bem-vindo, ${client.name}!`),
       (response) => {
         this.isLoading = false;
         this.showError(response.error.error);

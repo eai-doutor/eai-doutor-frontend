@@ -7,17 +7,20 @@ import {
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
+import { APPEARD } from 'src/app/animations/appeard.animation';
 import { FormatterLib } from 'src/app/lib/formatter.lib';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
+  animations: [APPEARD],
 })
 export class InputComponent implements OnInit, AfterViewInit {
   public isRequiredError: boolean;
   public isEmailError: boolean;
   public hasError: boolean;
+  public state = 'ready';
 
   @Input() form!: FormGroup;
   @Input() label!: string;
@@ -25,15 +28,19 @@ export class InputComponent implements OnInit, AfterViewInit {
   @Input() placeholder!: string;
   @Input() control!: string;
   @Input() required: boolean;
+  @Input() disabled: boolean;
 
   constructor(private cdr: ChangeDetectorRef, private formatter: FormatterLib) {
     this.isRequiredError = false;
     this.isEmailError = false;
     this.hasError = false;
     this.required = false;
+    this.disabled = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.disabled) { this.form.get(this.control)?.disable({ onlySelf: true, emitEvent: false }); }
+  }
 
   get mask(): string {
     switch (this.type) {

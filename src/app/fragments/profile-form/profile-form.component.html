@@ -4,7 +4,7 @@
       <div class="card card-primary">
         <div class="card-header">
           <i [@appeard]="state" class="fa fa-user-circle profile"></i>
-          <span>Aqui você edita seus dados pessoais, {{ profile.user.name }}.</span>
+          <span *ngIf="profile">Aqui você edita seus dados pessoais, {{ profile?.name }}.</span>
         </div>
 
         <div class="card-body">
@@ -30,6 +30,7 @@
                   placeholder="Digite o seu email"
                   [required]="true"
                   control="email"
+                  [disabled]="true"
                   type="text">
                 </app-input>
               </div>
@@ -39,7 +40,7 @@
                   [form]="profileForm"
                   label="Senha"
                   placeholder="Digite sua senha"
-                  [required]="true"
+                  [disabled]="true"
                   control="password"
                   type="password">
                 </app-input>

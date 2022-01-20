@@ -4,19 +4,25 @@ import { EAI_DOUTOR_API } from '../app.api';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { KeyType, SessionStorageService } from './session-storage.service';
-export interface IUserInfo {
-  name: string;
-  email: string;
-  password: string;
+
+const REGISTER_ENDPOINT = '/users/register';
+const EDIT_ENDPOINT = '/users/edit';
+const LIST_ENDPOINT = '/users/list';
+const LOGIN_ENDPOINT = '/users/login';
+
+export interface ITerm {
+  signed: boolean;
+  signatureDate: Date;
 }
 
 export interface IUser {
-  user: {
-    _id: string;
-    name: string;
-    email: string;
-  };
-  token: string;
+  _id?: string;
+  customerId?: string;
+  token?: string;
+  name: string;
+  email: string;
+  password: string;
+  terms?: ITerm;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -25,14 +31,22 @@ export class UserService {
 
   constructor(private httpClient: HttpClient, private sessionStorageService: SessionStorageService) {}
 
-  public create(user: IUser): Observable<IUserInfo> {
-    return this.httpClient.post<IUserInfo>(`${EAI_DOUTOR_API}/register`, user).pipe(map((user) => user));
+  public create(user: IUser): Observable<IUser> {
+    return this.httpClient.post<IUser>(`${EAI_DOUTOR_API}${REGISTER_ENDPOINT}`, user).pipe(map((user) => user));
+  }
+
+  public edit(user: IUser, id: string): Observable<IUser> {
+    return this.httpClient.put<IUser>(`${EAI_DOUTOR_API}${EDIT_ENDPOINT}/${id}`, user).pipe(map((user) => user));
+  }
+
+  public get(id: string): Observable<IUser> {
+    return this.httpClient.get<IUser>(`${EAI_DOUTOR_API}${LIST_ENDPOINT}/${id}`).pipe(map((users) => users));
   }
 
   public login(email: string, password: string): Observable<IUser> {
-    return this.httpClient.post<IUser>(`${EAI_DOUTOR_API}/authenticate`, { email, password }).pipe(tap((client) => {
-      this.sessionStorageService.set(KeyType.USER, { user: client.user });
-      this.sessionStorageService.set(KeyType.TOKEN, { token: client.token });
+    return this.httpClient.post<IUser>(`${EAI_DOUTOR_API}${LOGIN_ENDPOINT}`, { email, password }).pipe(tap((user) => {
+      this.setToken(user.token);
+      this.setUser(user);
     }));
   }
 
@@ -40,8 +54,20 @@ export class UserService {
     return this.sessionStorageService.get(KeyType.USER) !== null;
   }
 
+  public setUser(user: IUser): void {
+    this.sessionStorageService.set(KeyType.USER, user);
+  }
+
   public getUser(): IUser {
     return this.sessionStorageService.get(KeyType.USER);
+  }
+
+  public setToken(token?: string): void {
+    this.sessionStorageService.set(KeyType.TOKEN, { token });
+  }
+
+  public getToken(): { token: string } {
+    return this.sessionStorageService.get(KeyType.TOKEN);
   }
 
   public logout(): void {

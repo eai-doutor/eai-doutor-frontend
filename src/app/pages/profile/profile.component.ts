@@ -33,8 +33,21 @@ export class ProfileComponent implements OnInit {
   showSuccess(profile: IUser): void {
     Swal.fire({
       title: 'Sucesso!',
-      text: `${profile.user.name}, você editou suas informações pessoais.`,
+      text: `${profile.name}, você editou suas informações pessoais.`,
       icon: 'success',
+      background: this.alertTheme.background,
+      iconColor: this.alertTheme.iconColor,
+      showCancelButton: false,
+      confirmButtonColor: this.alertTheme.confirmButtonColor,
+      confirmButtonText: 'Ok',
+    });
+  }
+
+  public showError(error: any): void {
+    Swal.fire({
+      title: `Ops!`,
+      text: error ? error : 'Ocorreu um erro.',
+      icon: 'error',
       background: this.alertTheme.background,
       iconColor: this.alertTheme.iconColor,
       showCancelButton: false,
@@ -45,8 +58,8 @@ export class ProfileComponent implements OnInit {
 
   setProfileForm(): void {
     this.profileForm.patchValue({
-      name: this.profile.user.name,
-      email: this.profile.user.email,
+      name: this.profile?.name,
+      email: this.profile?.email,
     });
   }
 
@@ -61,12 +74,26 @@ export class ProfileComponent implements OnInit {
 
   editProfile(): void {
     if (this.profileForm.invalid) { return; }
+
+    const profile = this.profileForm.value;
+    const userId = this.userService.getUser().customerId;
     this.isLoading = true;
 
-    setTimeout(() => {
-      this.isLoading = false;
-      this.showSuccess(this.profile);
-      this.exitProfile();
-    }, 500);
+    if (profile && userId) {
+      this.userService.edit(profile, userId).subscribe(
+        (client) => this.showSuccess(client),
+        (response) => {
+          this.isLoading = false;
+          this.showError(response.error.error);
+        },
+        () => {
+          this.userService.get(userId).subscribe((client) => {
+            this.userService.setUser(client);
+            this.profile = this.userService.getUser();
+            this.isLoading = false;
+          });
+        }
+      );
+    }
   }
 }

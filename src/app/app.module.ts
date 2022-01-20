@@ -1,5 +1,5 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -48,6 +48,8 @@ import { registerLocaleData } from '@angular/common';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxMaskModule } from 'ngx-mask';
 
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
@@ -79,6 +81,7 @@ const PROVIDERS = [
   WindowService,
   LoggedInGuard,
   LoginGuard,
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
   { provide: LOCALE_ID, useValue: 'pt' },
 ];
